@@ -1,0 +1,70 @@
+<!--
+ * @Date         : 2022-12-11 12:31:14
+ * @LastEditors  : PengChaoQun 1152684231@qq.com
+ * @LastEditTime : 2023-01-08 16:02:57
+ * @FilePath     : /hello-world/demo/index.html
+ * @Author       : PengChaoQun 1152684231@qq.com
+ * @Description  : css帧动画
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .wrap {
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+    }
+
+    .bg {
+      width: 180px;
+      height: 60px;
+      background: url('./audio-recieve-frame-bg.png') no-repeat left center;
+      transform: translate3d(-120px, 0, 0);
+    }
+
+    .bg-ani {
+      width: 180px;
+      height: 60px;
+      background: url('./audio-recieve-frame-bg.png') no-repeat left center;
+      animation-name: ani;
+      /* 有几帧动画，这个数字就是几 */
+      animation-timing-function: steps(3);
+      animation-iteration-count: infinite;
+      animation-fill-mode:  forwards;
+      animation-duration: 1s;
+    }
+
+    @keyframes ani {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      100% {
+        /* 每帧的宽度乘以数量。3帧，每帧60px就是180px */
+        transform: translate3d(-180px, 0, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <div class="bg-ani"></div>
+  </div>
+
+</body>
+
+</html>
